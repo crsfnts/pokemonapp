@@ -1,0 +1,39 @@
+
+
+<ons-page id="home">
+  <ons-toolbar id="home-toolbar">
+  	<div class="left">
+  		<ons-toolbar-button onclick="openMenu()">
+  			<ons-icon icon="md-menu"></ons-icon>
+  		</ons-toolbar-button>
+  	</div>
+  	<div class="center">Pokèmon</div>
+  </ons-toolbar>
+
+  <ons-icon
+  icon="ion-navicon, material:md-menu">
+</ons-icon>
+
+<ons-icon icon="fa-spinner" spin></ons-icon>
+
+  Hello Trainer!
+
+   <ons-tabbar id="tabbar">
+    <ons-tab page="pokemon.html" label="All Pokèmon" icon="md-pets"></ons-tab>
+    <ons-tab page="saved.html" icon="md-stay_current_portrait"></ons-tab>
+  </ons-tabbar>
+
+<script>
+  const openMenu = () => {
+    document.querySelector('#menu').open();
+  };
+
+  document.addEventListener('prechange', ({ target, tabItem }) => {
+  if (target.matches('#tabbar')) {
+    document.querySelector('#home-toolbar .center').innerHTML = tabItem.getAttribute('label');
+  }
+});
+</script>
+
+</ons-page>
+

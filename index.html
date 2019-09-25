@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/onsenui.css">
+	<link rel="stylesheet" href="css/onsen-css-components.min.css">
+	<link rel="stylesheet" href="css/onsen-css-components.min.css">
+
+	<title></title>
+</head>
+<body>
+  <ons-splitter>
+  <!-- The side menu -->
+  <ons-splitter-side id="menu" collapse>
+  <ons-page>
+    <ons-list>
+      <ons-list-item onclick="loadPage('about.html')">
+        About
+      </ons-list-item>
+    </ons-list>
+  </ons-page>
+</ons-splitter-side>
+  <!-- Everything not in the side menu -->
+  <ons-splitter-content>
+    <ons-navigator id="navigator" page="login.html"></ons-navigator>
+  </ons-splitter-content>
+</ons-splitter>
+
+<script type="text/javascript">
+  const loadPage = (page) => {
+  document.querySelector('#menu').close();
+  document.querySelector('#navigator').bringPageTop(page, { animation: 'fade' });
+};
+</script>
+
+
+<script src="js/onsenui.min.js"></script>
+</body>
+</html>
